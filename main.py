@@ -1,20 +1,16 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
+from typing import Optional
 
-from contextlib import asynccontextmanager
-
-from database import create_tables, delete_tables
-from router import router as tasks_router
-
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    await delete_tables()
-    print("База очищена")
-    await create_tables()
-    print("База готова к работе")
-    yield
-    print("Выключение")
+app = FastAPI()
 
 
-app = FastAPI(lifespan=lifespan)
-app.include_router(tasks_router)
+class Task(BaseModel):
+    name: str
+    description: Optional[str] = None
+
+
+@app.get("/tasks")
+def get_tasks():
+    task = Task(name="Write this video")
+    return {"data": task}

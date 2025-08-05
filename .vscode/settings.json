@@ -1,0 +1,45 @@
+{
+  // Use the Python interpreter from the virtual environment
+  "python.defaultInterpreterPath": "venv/bin/python",
+
+  // Use Pylance for fast and intelligent code analysis
+  "python.languageServer": "Pylance",
+
+  // Enable auto-import suggestions (e.g., "Optional" from "typing")
+  "python.analysis.autoImportCompletions": true,
+
+  // Show documentation on hover, including AI/ML libraries
+  "python.analysis.typeCheckingMode": "basic",
+
+  // Automatically format code on save using Black
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+
+  // Organize imports automatically on save
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+
+  // Enable linting with Flake8
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+
+  // Enable Jupyter notebooks and IPython support
+  "jupyter.jupyterServerType": "local",
+
+  // Enable AI-powered IntelliCode completions
+  "editor.suggestSelection": "first",
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+
+  // Enable extension recommendations per project
+  "extensions.ignoreRecommendations": false,
+
+  // Auto-detect imports across entire workspace
+  "python.analysis.indexing": true,
+
+  // Enable IntelliSense in .ipynb, .py, .pyi, etc.
+  "python.analysis.diagnosticMode": "workspace",
+
+  // Run FastAPI with uvicorn via VSCode launch
+  "terminal.integrated.defaultProfile.linux": "bash"
+}
