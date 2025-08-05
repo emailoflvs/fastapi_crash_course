@@ -1,16 +1,31 @@
-from fastapi import FastAPI
+from typing import Annotated, Optional
+
+from fastapi import Depends, FastAPI
 from pydantic import BaseModel
-from typing import Optional
 
 app = FastAPI()
 
 
-class Task(BaseModel):
+class STaskAdd(BaseModel):
     name: str
     description: Optional[str] = None
 
 
-@app.get("/tasks")
-def get_tasks():
-    task = Task(name="Write this video")
-    return {"data": task}
+class STask(STaskAdd):
+    id: int
+
+
+tasks = []
+
+
+@app.post("/tasks")
+async def add_task(
+    task: Annotated[STaskAdd, Depends()],
+):
+    return {"ok": True}
+
+
+# @app.get("/tasks")
+# def get_tasks():
+#     task = Task(name="Write this video")
+#     return {"data": task}

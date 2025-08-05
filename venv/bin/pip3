@@ -1,4 +1,4 @@
-#!/home/lvs/Desktop/AI/servers/fastapi_crash_course/venv/bin/python3
+#!/home/lvs/Desktop/AI/servers/fastapi_crash_course/venv/bin/python3.10
 # -*- coding: utf-8 -*-
 import re
 import sys
