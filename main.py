@@ -9,11 +9,6 @@ from database import create_tables, delete_tables
 from contextlib import asynccontextmanager
 
 
-app = FastAPI(lifespan=lifespan)
-
-
-
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await delete_tables()
@@ -24,7 +19,7 @@ async def lifespan(app: FastAPI):
     print("close")
 
 
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 
 
 class STaskAdd(BaseModel):
