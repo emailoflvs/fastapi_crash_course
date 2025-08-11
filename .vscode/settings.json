@@ -1,6 +1,6 @@
 {
   // Use the Python interpreter from the virtual environment
-  "python.defaultInterpreterPath": "venv/bin/python",
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
 
   // Use Pylance for fast and intelligent code analysis
   "python.languageServer": "Pylance",
@@ -15,14 +15,28 @@
   "python.formatting.provider": "black",
   "editor.formatOnSave": true,
 
-  // Organize imports automatically on save
+  // Black configuration: limit line length to 79 chars (PEP8)
+  "python.formatting.blackArgs": [
+    "--line-length=79"
+  ],
+
+  // Organize imports automatically on save and fix issues
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
   },
 
   // Enable linting with Flake8
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
+  "python.linting.lintOnSave": true,
+
+  // Enable Mypy type checking
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyArgs": [
+    "--ignore-missing-imports",
+    "--strict"
+  ],
 
   // Enable Jupyter notebooks and IPython support
   "jupyter.jupyterServerType": "local",
@@ -31,15 +45,15 @@
   "editor.suggestSelection": "first",
   "editor.suggest.snippetsPreventQuickSuggestions": false,
 
-  // Enable extension recommendations per project
+  // Allow extension recommendations per project
   "extensions.ignoreRecommendations": false,
 
-  // Auto-detect imports across entire workspace
+  // Auto-detect imports across the entire workspace
   "python.analysis.indexing": true,
 
   // Enable IntelliSense in .ipynb, .py, .pyi, etc.
   "python.analysis.diagnosticMode": "workspace",
 
-  // Run FastAPI with uvicorn via VSCode launch
+  // Default integrated terminal to bash
   "terminal.integrated.defaultProfile.linux": "bash"
 }
